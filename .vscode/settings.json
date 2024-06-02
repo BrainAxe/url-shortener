@@ -1,0 +1,4 @@
+{
+  "go.lintTool": "golint",
+  "go.formatTool": "gofmt"
+}
