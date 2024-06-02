@@ -45,6 +45,7 @@ Create a .env file in the root directory with the following content:
 ```bash
 MONGO_STORE_SOURCE=mongodb://localhost:27017
 REDIS_STORE_SOURCE=localhost:6378
+HOST_PORT=9000
 ```
 
 ### Run the Application

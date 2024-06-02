@@ -2,15 +2,22 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/BrainAxe/url-shortener/handler"
 	"github.com/BrainAxe/url-shortener/store"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	r := gin.Default()
+	//Load env file
+	errENV := godotenv.Load()
+	if errENV != nil {
+		panic(fmt.Sprintf("Error loading .env file - Error: %v", errENV))
+	}
 
+	r := gin.Default()
 	r.GET("/", func(ctx *gin.Context) {
 		ctx.JSON(200, gin.H{
 			"message": "Welcome to the URL Shortener API!🚀 ",
@@ -28,7 +35,7 @@ func main() {
 	// Note that store initialization happens here
 	store.InitializeStore("redis")
 
-	err := r.Run(":9000")
+	err := r.Run(":" + os.Getenv("HOST_PORT"))
 	if err != nil {
 		panic(fmt.Sprintf("Failed to start the web server - Error: %v", err))
 	}
