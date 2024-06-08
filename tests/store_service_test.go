@@ -1,16 +1,23 @@
 package tests
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/BrainAxe/url-shortener/store"
+	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"
 )
 
 var testStoreService = &store.StorageService{}
 
 func init() {
-	testStoreService = store.InitializeStore("redis")
+	//Load env file
+	errENV := godotenv.Load("../.env")
+	if errENV != nil {
+		panic(fmt.Sprintf("Error loading .env file - Error: %v", errENV))
+	}
+	testStoreService = store.InitializeStore("mongo")
 }
 
 func TestStoreInit(t *testing.T) {
