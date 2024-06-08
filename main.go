@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/BrainAxe/url-shortener/handler"
+	"github.com/BrainAxe/url-shortener/handlers"
 	"github.com/BrainAxe/url-shortener/store"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
