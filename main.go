@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"os"
 
-	"github.com/BrainAxe/url-shortener/handlers"
+	handler "github.com/BrainAxe/url-shortener/handlers"
 	"github.com/BrainAxe/url-shortener/store"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -18,17 +19,19 @@ func main() {
 	}
 
 	r := gin.Default()
+	r.LoadHTMLGlob("templates/*")
+	// Serve static files
+	r.Static("/static", "./static")
+
 	r.GET("/", func(ctx *gin.Context) {
-		ctx.JSON(200, gin.H{
-			"message": "Welcome to the URL Shortener API!🚀 ",
-		})
+		ctx.HTML(http.StatusOK, "index.html", gin.H{})
 	})
 
 	r.POST("/api/shorten", func(c *gin.Context) {
 		handler.CreateShortUrl(c)
 	})
 
-	r.GET("/:shortUrl", func(c *gin.Context) {
+	r.GET("/api/:shortUrl", func(c *gin.Context) {
 		handler.HandleShortUrlRedirect(c)
 	})
 

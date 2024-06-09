@@ -25,7 +25,7 @@ func CreateShortUrl(c *gin.Context) {
 	shortUrl := utils.GenerateShortLink(creationRequest.LongUrl, strRandom.String())
 	store.StoreService.Strategy.SaveUrlMapping(shortUrl, creationRequest.LongUrl)
 
-	host := c.Request.Host
+	host := c.Request.Host + "/api/"
 	c.JSON(200, gin.H{
 		"message":   "short url created successfully",
 		"short_url": host + shortUrl,

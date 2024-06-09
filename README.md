@@ -1,6 +1,6 @@
 # URL Shortener
 
-A URL shortener service built with Go using the GIN framework, with storage options including MongoDB and Redis, and a frontend powered by HTMX.
+A URL shortener service built with Go using the GIN framework, with storage options including MongoDB and Redis, and a frontend developed with HTML, CSS, and JavaScript.
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ A URL shortener service built with Go using the GIN framework, with storage opti
 - Shorten long URLs
 - Redirect short URLs to the original URL
 - Storage using either MongoDB or Redis
-- Frontend using HTMX
+- Frontend using HTML, CSS, and JavaScript
 
 ## Installation
 
@@ -58,10 +58,10 @@ The application will start on `http://localhost:9000`.
 
 ### API Endpoints
   - POST /api/shorten - Shorten a long URL
-  - GET /:shortUrl - Redirect to the original URL
+  - GET /api/:shortUrl - Redirect to the original URL
 
 ### Frontend
-The frontend is built using HTMX and is available at the root endpoint.
+The frontend, built with HTML, CSS, and JavaScript, is accessible at the root endpoint.
  - Visit `http://localhost:9000` to access the frontend interface.
 
 ## License

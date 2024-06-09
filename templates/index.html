@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener: The Free URL Shortener</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/js/script.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <h1>URL Shortener</h1>
+    </div>
+    <div class="container">
+        <div class="left-box box" id="success-box" style="display: none;">
+            <h3 style="font-weight: 500;"> Your Long URL</h3>
+            <input type="text" class="input-box" id="long-url" value="" readonly>
+            <h3 style="font-weight: 500;">Short URL</h3>
+            <input type="text" class="input-box" id="short-url" value="" readonly>
+            <div class="button-container">
+                <button class="button blue" id="visit-url">Visit URL</button>
+                <!-- <button class="button blue">QR</button> -->
+                <button class="button green" id="copy-url">Copy</button>
+            </div>
+            <div class="button-container">
+                <button class="button shortener" id="another-shortener-button">Shorten another</button>
+            </div>
+        </div>
+
+        <div class="left-box-create-short-url box" id="shorten-url-box">
+            <h3 style="font-weight: 500;">Shorten a long URL</h3>
+            <input type="text" class="input-box" id="url-input" placeholder="Enter long link here" required>
+            <p class="error-message" id="error-message"></p>
+            <div class="button-container">
+                <button class="button shortener" id="shortener-button">Shorten URL</button>
+            </div>
+        </div>        
+        
+        
+        <div class="right-paragraph">
+            <h1>The Free URL Shortener</h1>
+            <p>Create shorter URLs with URL Shortener.</p>
+            <p>The URL Shortener service transforms lengthy, complex links into concise, memorable, and trackable short URLs, making them more visually appealing and easier to share. Use it to shorten links for any social media platforms, blogs, SMS, emails, ads, or pretty much anywhere else you want to share them.</p>
+        </div>
+    </div>
+</body>
+</html>
