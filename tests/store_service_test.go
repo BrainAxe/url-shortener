@@ -17,7 +17,7 @@ func init() {
 	if errENV != nil {
 		panic(fmt.Sprintf("Error loading .env file - Error: %v", errENV))
 	}
-	testStoreService = store.InitializeStore("mongo")
+	testStoreService = store.InitializeStore("redis")
 }
 
 func TestStoreInit(t *testing.T) {
