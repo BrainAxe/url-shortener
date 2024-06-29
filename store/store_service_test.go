@@ -1,15 +1,14 @@
-package tests
+package store
 
 import (
 	"fmt"
 	"testing"
 
-	"github.com/BrainAxe/url-shortener/store"
 	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"
 )
 
-var testStoreService = &store.StorageService{}
+var testStoreService = &StorageService{}
 
 func init() {
 	//Load env file
@@ -17,7 +16,7 @@ func init() {
 	if errENV != nil {
 		panic(fmt.Sprintf("Error loading .env file - Error: %v", errENV))
 	}
-	testStoreService = store.InitializeStore("redis")
+	testStoreService = InitializeStore("redis")
 }
 
 func TestStoreInit(t *testing.T) {
