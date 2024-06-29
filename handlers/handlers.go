@@ -4,7 +4,6 @@ import (
 	"net/http"
 
 	"github.com/BrainAxe/url-shortener/store"
-	"github.com/BrainAxe/url-shortener/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 )
@@ -22,7 +21,7 @@ func CreateShortUrl(c *gin.Context) {
 		return
 	}
 	strRandom := uuid.New()
-	shortUrl := utils.GenerateShortLink(creationRequest.LongUrl, strRandom.String())
+	shortUrl := GenerateShortLink(creationRequest.LongUrl, strRandom.String())
 	store.StoreService.Strategy.SaveUrlMapping(shortUrl, creationRequest.LongUrl)
 
 	host := c.Request.Host + "/api/"
